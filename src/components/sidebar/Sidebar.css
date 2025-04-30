@@ -1,0 +1,196 @@
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f7fc; 
+  overflow: hidden;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  transition: margin-left 0.3s ease-in-out;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.sidebar-menu {
+  margin-top: 60px; 
+}
+
+.sidebar-container {
+  width: 250px;
+  height: 100vh;
+  background-color: #fff;
+  transition: width 0.3s ease-in-out;
+  position: relative;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); 
+  border-right: 1px solid #ddd; 
+}
+
+.sidebar-container.collapsed {
+  width: 80px;
+}
+
+.hamburger-menu {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  color: #333; 
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.menu-item {
+  padding-top:15px ;
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #333; 
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-bottom: 1px solid #eee; 
+}
+
+.menu-item.active {
+  background-color: #3498db; 
+  color: #fff;
+  font-weight: 600;
+}
+
+.menu-item:hover {
+  background-color: #ecf0f1;
+  color: #3498db; 
+}
+
+.menu-item .MuiSvgIcon-root {
+  margin-right: 15px; 
+  font-size: 20px; 
+  transition: transform 0.2s ease-in-out;
+}
+
+.menu-item.active .MuiSvgIcon-root {
+  transform: scale(1.1); 
+}
+
+.sidebar-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.sidebar-container::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.content-container {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #fff;
+  overflow-y: auto;
+  transition: margin-left 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+.app-container.collapsed .content-container {
+  margin-left: 80px;
+}
+
+.sidebar-container.collapsed .menu-item {
+  justify-content: center; 
+}
+
+.app-container.collapsed .menu-item.active {
+  text-align: center;
+}
+
+
+.app-container.login-page {
+  justify-content: center;
+  align-items: center;
+  padding: 0; 
+}
+
+
+.sidebar-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 250px; 
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #3498db;
+  border-top: 1px solid #eee;
+  transition: width 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-container.collapsed .sidebar-footer {
+  width: 80px; 
+  justify-content: center;
+}
+
+.sidebar-container.collapsed .user-avatar {
+  margin-left: 0; 
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 20px;
+}
+
+.user-name {
+  font-size: 14px;
+  color: #333;
+  margin-left: 10px;
+}
+
+.sidebar-container.collapsed .user-name {
+  display: none; 
+}
+.notification-icon {
+  margin-left: auto; 
+  margin-right: 20px; 
+  cursor: pointer;
+  color: #ffffff; 
+  transition: color 0.3s ease;
+}
+
+.notification-icon:hover {
+  color: #ffffff; 
+  animation: shake 0.5s ease-in-out; 
+}
+
+.sidebar-container.collapsed .notification-icon {
+  margin-right: 0; 
+}
+
+/* Define the shake animation */
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-15deg); 
+  }
+  50% {
+    transform: rotate(15deg); 
+  }
+  75% {
+    transform: rotate(-10deg); 
+  }
+  100% {
+    transform: rotate(0deg); 
+  }
+}
